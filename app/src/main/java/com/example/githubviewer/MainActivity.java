@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerRepositories.setLayoutManager(notesLayoutManager);
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        String date = dateService.getCurrentDateString();
-        Call<GithubResponse> call = apiInterface.getResponse(date);
+        String date = "created:>" + dateService.getCurrentDateString();
+        String sort = "stars";
+        String order = "desc";
+        Call<GithubResponse> call = apiInterface.getResponse(date, sort, order);
         call.enqueue(new Callback<GithubResponse>() {
             @Override
             public void onResponse(Call<GithubResponse> call, Response<GithubResponse> response) {
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     recyclerRepositories.setAdapter(repositoryRecyclerAdapter);
                 }
             }
+
             @Override
             public void onFailure(Call<GithubResponse> call, Throwable t) {
                 t.printStackTrace();

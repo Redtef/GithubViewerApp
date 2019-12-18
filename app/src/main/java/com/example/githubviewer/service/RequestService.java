@@ -23,37 +23,37 @@ public class RequestService {
 //        getRepositories(date);
 //    }
 
-    public GithubResponse getResponse(String date) {
-
-//        Response<GithubResponse> githubResponse = new Response<GithubResponse>();
-        final GithubResponse[] githubResponse = {new GithubResponse()};
-        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-//        Call<GithubResponse> call = apiInterface.getResponse(date);
-        Call<GithubResponse> call = apiInterface.getResponse();
-//        try {
-//            githubResponse = call.execute().body();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        call.enqueue(new Callback<GithubResponse>() {
-            @Override
-            public void onResponse(Call<GithubResponse> call, Response<GithubResponse> response) {
-                Log.d(TAG, "Onresponse");
-                GithubResponse githubResponse = response.body();
-                if (githubResponse != null) {
-                }
-            }
-
-            @Override
-            public void onFailure(Call<GithubResponse> call, Throwable t) {
-                Log.d(TAG, "OnFailure");
-                t.printStackTrace();
-
-            }
-        });
-        return githubResponse[0];
-    }
+//    public GithubResponse getResponse(String date) {
+//
+////        Response<GithubResponse> githubResponse = new Response<GithubResponse>();
+//        final GithubResponse[] githubResponse = {new GithubResponse()};
+//        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+////        Call<GithubResponse> call = apiInterface.getResponse(date);
+//        Call<GithubResponse> call = apiInterface.getResponse();
+////        try {
+////            githubResponse = call.execute().body();
+////        } catch (IOException e) {
+////            e.printStackTrace();
+////        }
+//
+//        call.enqueue(new Callback<GithubResponse>() {
+//            @Override
+//            public void onResponse(Call<GithubResponse> call, Response<GithubResponse> response) {
+//                Log.d(TAG, "Onresponse");
+//                GithubResponse githubResponse = response.body();
+//                if (githubResponse != null) {
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<GithubResponse> call, Throwable t) {
+//                Log.d(TAG, "OnFailure");
+//                t.printStackTrace();
+//
+//            }
+//        });
+//        return githubResponse[0];
+//    }
 
 //    public List<Repository> getRepositories(String date) {
 //        List<Repository> repositories = new ArrayList<>();
