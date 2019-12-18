@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -41,7 +42,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/repo_name" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/repo_owner_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -59,7 +60,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/repo_owner"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/repo_owner_image"
                 app:layout_constraintTop_toBottomOf="@+id/repo_description" />
 
             <TextView
@@ -67,10 +68,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="32dp"
                 android:text="@string/number_placeholder"
+                android:textColor="@android:color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/repo_description" />
+
+            <ImageView
+                android:id="@+id/stars_icon"
+                android:layout_width="23dp"
+                android:layout_height="19dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:tint="#000000"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/repo_stars"
+                app:layout_constraintTop_toBottomOf="@+id/repo_description"
+                app:srcCompat="@drawable/ic_action_name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
