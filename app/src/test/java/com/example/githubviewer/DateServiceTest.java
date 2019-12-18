@@ -11,7 +11,7 @@ public class DateServiceTest {
     @Test
     public void Date_isCorrect() {
         DateService dateService = new DateService();
-        String dateExpected = "2019-12-15";
+        String dateExpected = "2019-11-18";
         String dateActual = dateService.getCurrentDateString();
 
         assertEquals(dateExpected, dateActual);

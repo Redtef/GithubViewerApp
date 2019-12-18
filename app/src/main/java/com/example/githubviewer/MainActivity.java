@@ -13,6 +13,7 @@ import com.example.githubviewer.bean.GithubResponse;
 import com.example.githubviewer.bean.Repository;
 import com.example.githubviewer.retrofitApi.ApiClient;
 import com.example.githubviewer.retrofitApi.ApiInterface;
+import com.example.githubviewer.service.DateService;
 import com.example.githubviewer.service.RequestService;
 
 import java.util.List;
@@ -29,18 +30,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getRepositories(mContext, "-");
+        getRepositories(mContext);
 
     }
 
 
-    public void getRepositories(final Context context, String date) {
+    public void getRepositories(final Context context) {
+        DateService dateService = new DateService();
         final RecyclerView recyclerRepositories = findViewById(R.id.item_list);
         final LinearLayoutManager notesLayoutManager = new LinearLayoutManager(this);
         recyclerRepositories.setLayoutManager(notesLayoutManager);
 
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<GithubResponse> call = apiInterface.getResponse();
+        String date = dateService.getCurrentDateString();
+        Call<GithubResponse> call = apiInterface.getResponse(date);
         call.enqueue(new Callback<GithubResponse>() {
             @Override
             public void onResponse(Call<GithubResponse> call, Response<GithubResponse> response) {

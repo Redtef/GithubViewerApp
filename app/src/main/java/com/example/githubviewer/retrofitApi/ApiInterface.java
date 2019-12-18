@@ -9,9 +9,8 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
 
-//    @GET("search/repositories?q=created:>{date}&sort=stars&order=desc")
-
-    //    Call<GithubResponse> getResponse(@Query("date") String date);
-    @GET("search/repositories?q=created:>2019-12-10&sort=stars&order=desc")
-    Call<GithubResponse> getResponse();
+    @GET("search/repositories?q=created:>{date}&sort=stars&order=desc")
+    Call<GithubResponse> getResponse(@Query("date") String date);
+//    @GET("search/repositories?q=created:>2019-12-10&sort=stars&order=desc")
+//    Call<GithubResponse> getResponse();
 }
